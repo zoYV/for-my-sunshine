@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hey Pumpkin ❤️</title>
+<title>For You 💌</title>
 
 <style>
 
@@ -14,36 +14,75 @@ display:flex;
 justify-content:center;
 align-items:center;
 font-family:Arial, sans-serif;
-
-/* pastel background */
-
 background:linear-gradient(135deg,#ffd6e7,#ffe9f3,#e8f7ff);
-
 overflow:hidden;
-text-align:center;
 }
 
-.card{
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-max-width:420px;
+/* envelope */
+
+.envelope{
+position:relative;
+width:320px;
+height:200px;
+background:#ff8fab;
+border-radius:10px;
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.flap{
+position:absolute;
+top:0;
+width:100%;
+height:100px;
+background:#ff4b6e;
+clip-path:polygon(0 0,100% 0,50% 100%);
+transform-origin:top;
+transition:0.6s;
+}
+
+.envelopeText{
+color:white;
+font-size:18px;
 z-index:2;
 }
 
-h1{
+/* letter */
+
+.letter{
+position:absolute;
+background:white;
+width:320px;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+text-align:center;
+top:50%;
+transform:translateY(200%);
+transition:0.8s;
+}
+
+.letter h2{
 color:#ff4b6e;
 }
 
 .message{
 font-size:18px;
 line-height:1.7;
+}
+
+.signature{
 margin-top:15px;
+color:#ff4b6e;
+font-weight:bold;
+font-size:18px;
 }
 
 .hug{
-font-size:60px;
+font-size:55px;
 margin-top:10px;
 animation:hug 1.5s infinite;
 }
@@ -52,13 +91,6 @@ animation:hug 1.5s infinite;
 0%{transform:scale(1)}
 50%{transform:scale(1.15)}
 100%{transform:scale(1)}
-}
-
-.signature{
-margin-top:15px;
-color:#ff4b6e;
-font-weight:bold;
-font-size:18px;
 }
 
 /* floating hearts */
@@ -86,18 +118,26 @@ opacity:0;
 
 <body>
 
-<div class="card">
+<div class="envelope" onclick="openLetter()">
 
-<h1>Hey Pumpkin ❤️</h1>
+<div class="flap" id="flap"></div>
+
+<div class="envelopeText">Tap to open 💌</div>
+
+</div>
+
+<div class="letter" id="letter">
+
+<h2>Hey Pumpkin ❤️</h2>
 
 <p class="message">
 I know you're feeling a little low, so here's a tiny surprise for you.
 </p>
 
 <p class="message">
-Pumpkin, sometimes life feels confusing. But you don’t need to have all the answers now.  
-Take a breath, take a step, keep moving. And remember I believe in you fully.  
-When you’re lost, think of us together. We’ll figure things out, side by side.  
+Pumpkin, sometimes life feels confusing. But you don’t need to have all the answers now.
+Take a breath, take a step, keep moving. And remember I believe in you fully.
+When you’re lost, think of us together. We’ll figure things out side by side.
 You’ll never face life alone, my sunshine.
 </p>
 
@@ -109,7 +149,15 @@ You’ll never face life alone, my sunshine.
 
 <script>
 
-/* more floating hearts */
+function openLetter(){
+
+document.getElementById("flap").style.transform="rotateX(180deg)"
+
+document.getElementById("letter").style.transform="translateY(-50%)"
+
+}
+
+/* floating hearts */
 
 setInterval(()=>{
 
@@ -121,7 +169,7 @@ heart.innerHTML="💗"
 
 heart.style.left=Math.random()*100+"vw"
 
-heart.style.fontSize=(18+Math.random()*30)+"px"
+heart.style.fontSize=(20+Math.random()*30)+"px"
 
 heart.style.animationDuration=(4+Math.random()*4)+"s"
 
@@ -134,4 +182,4 @@ setTimeout(()=>heart.remove(),7000)
 </script>
 
 </body>
-</html>
+  </html>
