@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hey Pumpkin ❤️</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Arial, sans-serif;
+
+/* pastel background */
+
+background:linear-gradient(135deg,#ffd6e7,#ffe9f3,#e8f7ff);
+
+overflow:hidden;
+text-align:center;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+max-width:420px;
+z-index:2;
+}
+
+h1{
+color:#ff4b6e;
+}
+
+.message{
+font-size:18px;
+line-height:1.7;
+margin-top:15px;
+}
+
+.hug{
+font-size:60px;
+margin-top:10px;
+animation:hug 1.5s infinite;
+}
+
+@keyframes hug{
+0%{transform:scale(1)}
+50%{transform:scale(1.15)}
+100%{transform:scale(1)}
+}
+
+.signature{
+margin-top:15px;
+color:#ff4b6e;
+font-weight:bold;
+font-size:18px;
+}
+
+/* floating hearts */
+
+.heart{
+position:absolute;
+bottom:-20px;
+animation:float linear infinite;
+pointer-events:none;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-120vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Hey Pumpkin ❤️</h1>
+
+<p class="message">
+I know you're feeling a little low, so here's a tiny surprise for you.
+</p>
+
+<p class="message">
+Pumpkin, sometimes life feels confusing. But you don’t need to have all the answers now.  
+Take a breath, take a step, keep moving. And remember I believe in you fully.  
+When you’re lost, think of us together. We’ll figure things out, side by side.  
+You’ll never face life alone, my sunshine.
+</p>
+
+<div class="hug">🤗 ❤️</div>
+
+<div class="signature">From Chazzi ❤️</div>
+
+</div>
+
+<script>
+
+/* more floating hearts */
+
+setInterval(()=>{
+
+const heart=document.createElement("div")
+
+heart.className="heart"
+
+heart.innerHTML="💗"
+
+heart.style.left=Math.random()*100+"vw"
+
+heart.style.fontSize=(18+Math.random()*30)+"px"
+
+heart.style.animationDuration=(4+Math.random()*4)+"s"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>heart.remove(),7000)
+
+},200)
+
+</script>
+
+</body>
+</html>
